@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hust.hospital.mapper.InPathMapper">
+    <select id="getInPaths" resultType="com.hust.hospital.entity.InPath">
+        select * from pathmanagement.inpath
+    </select>
+    <select id="getInPathById" resultType="com.hust.hospital.entity.InPath" parameterType="String">
+        select * from pathmanagement.inpath where id = #{id}
+    </select>
+    <insert id="addInPath" parameterType="com.hust.hospital.entity.InPath">
+        insert into pathmanagement.inpath (id,name,bed,status,date,time) values (#{id},#{name},#{bed},#{status},#{date},#{time})
+    </insert>
+    <update id="updateInPath" parameterType="com.hust.hospital.entity.InPath">
+        update pathmanagement.inpath set name = #{name},bed = #{bed},status = #{status},date = #{date},time = #{time} where id = #{id};
+    </update>
+    <delete id="deleteInPath" parameterType="String">
+        delete from pathmanagement.inpath where id = #{id}
+    </delete>
+    <select id="getInPathByName" resultType="com.hust.hospital.entity.InPath" parameterType="String">
+        select * from pathmanagement.inpath where name = #{name}
+    </select>
+</mapper>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hust.hospital.mapper.AdminMapper">
+    <select id="getAdminByUsername" resultType="com.hust.hospital.entity.Admin" parameterType="String">
+        select * from pathmanagement.admin where username = #{username}
+    </select>
+
+</mapper>

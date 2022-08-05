@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hust.hospital.mapper.OverAllMapper">
+    <select id="getOverAllById" resultType="com.hust.hospital.entity.OverAll" parameterType="String">
+        select * from pathmanagement.overall where patient_id = #{id}
+    </select>
+    <insert id="addOverAll" parameterType="com.hust.hospital.entity.OverAll">
+        insert into pathmanagement.overall (patient_id,stage_one,stage_two,stage_three,stage_four) values (#{patientId},#{stageOne},#{stageTwo},#{stageThree},#{stageFour})
+    </insert>
+    <update id="updateOverAll" parameterType="com.hust.hospital.entity.OverAll">
+        update pathmanagement.overall set stage_one = #{stageOne},stage_two = #{stageTwo},stage_three = #{stageThree},stage_four = #{stageFour} where patient_id = #{patientId};
+    </update>
+    <delete id="deleteOverAll" parameterType="String">
+        delete from pathmanagement.overall where patient_id = #{patientId}
+    </delete>
+</mapper>

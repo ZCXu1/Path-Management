@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hust.hospital.mapper.Stage4Mapper">
+    <select id="getStage4ById" resultType="com.hust.hospital.entity.detail.Stage4" parameterType="String">
+        select * from pathmanagement.stage4 where patient_id = #{patientId}
+    </select>
+    <insert id="addStage4" parameterType="com.hust.hospital.entity.detail.Stage4">
+        insert into pathmanagement.stage4 (patient_id,checked_cities,cities,detail_cities,begin_date,begin_time,end_date,end_time) values (#{patientId},#{checkedCities},#{cities},#{detailCities},#{beginDate},#{beginTime},#{endDate},#{endTime})
+    </insert>
+    <update id="updateStage4" parameterType="com.hust.hospital.entity.detail.Stage4">
+        update pathmanagement.stage4 set checked_cities = #{checkedCities},cities = #{cities},detail_cities = #{detailCities},begin_date = #{beginDate},begin_time = #{beginTime},end_date = #{endDate},end_time = #{endTime}  where patient_id = #{patientId};
+    </update>
+</mapper>
